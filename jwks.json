@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "kid": "epic-sandbox-key",
+      "alg": "RS256",
+      "n": "5Tp_u_gaD-yd4dlffxk-IoS4-1KfPY9XAPtOvrMvmdts-Dqwzt9nYwXZJ5OVgLEc19oY-k1sQEYA-KO_MzlQ3zrXQL-ZiHLP84iyplhQptyVniYEZ_0T8ph7Dw5pqyFSl61YEOSIpNHVBY6URL2-8yJ1DSnA213ueSPOg5ULteRHCcCvRaukjlJNpXy7Ao1ulqDhq41Fvk7tMAVvB-AnaVE69WnpUgcrLqjEQQH6GbKkvgmSbg5U_kO22dLKaL2z3RTPSvOieirrBezYMakVnfvNXiFFaaUFmW6z-X610P2NDDr2hUMhtn1CSoZj8vZDAgQD4t0w3ciVXJTPAhtGEw",
+      "e": "AQAB"
+    }
+  ]
+}
