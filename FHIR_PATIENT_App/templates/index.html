@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHIR Patient Report System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-content">
+            <div class="hero-section">
+                <div class="hero-icon">🏥</div>
+                <h1 class="hero-title">FHIR Patient Report System</h1>
+                <p class="hero-subtitle">Generate comprehensive patient reports from FHIR-compliant servers</p>
+                <a href="/login" class="btn-login">Get Started</a>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>FHIR Integration</h3>
+                    <p>Connect to multiple FHIR servers including HAPI, SMART, and OpenMRS</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Rich Visualizations</h3>
+                    <p>Interactive charts and graphs for better insights</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📄</div>
+                    <h3>Export Reports</h3>
+                    <p>Generate HTML reports with optional graphs and data tables</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
