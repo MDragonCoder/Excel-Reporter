@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients - FHIR Report System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="patients-container">
+        <!-- Header -->
+        <div class="patients-header">
+            <h1>🏥 Patient Management</h1>
+            <button class="btn-logout" onclick="window.location.href='/'">Logout</button>
+        </div>
+        
+        <!-- Filters -->
+        <div class="filters-section">
+            <div class="filter-group">
+                <label>Gender:</label>
+                <select id="genderFilter">
+                    <option value="all">All</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Age Range:</label>
+                <input type="number" id="ageMin" placeholder="Min" value="0" style="width: 80px;">
+                <span>-</span>
+                <input type="number" id="ageMax" placeholder="Max" value="120" style="width: 80px;">
+            </div>
+            
+            <div class="filter-group">
+                <label>Search:</label>
+                <input type="text" id="searchInput" placeholder="Search by name...">
+            </div>
+            
+            <button class="btn-filter" onclick="applyFilters()">Apply Filters</button>
+            <button class="btn-reset" onclick="resetFilters()">Reset</button>
+        </div>
+        
+        <!-- Export Options -->
+        <div class="export-section">
+            <h3>Export Options</h3>
+            <div class="export-options">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="includeGraphs" checked>
+                    Include Graphs in Report
+                </label>
+                <div class="export-limit">
+                    <label>Export up to:</label>
+                    <select id="exportLimit">
+                        <option value="10">10 patients</option>
+                        <option value="20">20 patients</option>
+                        <option value="50" selected>50 patients</option>
+                        <option value="100">100 patients</option>
+                    </select>
+                </div>
+                <button class="btn-export" onclick="showExportConfirmation()">Export Report</button>
+            </div>
+        </div>
+        
+        <!-- Patient Table -->
+        <div class="patient-table-container">
+            <div class="table-header">
+                <h3>Patient List</h3>
+                <span id="patientCount" class="patient-count">Loading...</span>
+            </div>
+            <div class="table-wrapper">
+                <table id="patientTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Age</th>
+                            <th>Birth Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="patientTableBody">
+                        <tr>
+                            <td colspan="5" class="loading-text">Loading patients...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Export</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to export the report?</p>
+                <p class="modal-details">This will generate a report with the current filtered patients and selected options.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+                <button class="btn-confirm" onclick="confirmExport()">Export</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message" style="display: none;">
+        <div class="success-content">
+            <span class="success-icon">✓</span>
+            <span class="success-text">Report created</span>
+        </div>
+    </div>
+    
+    <!-- Create Another Report Button -->
+    <div id="anotherReportBtn" class="another-report-btn" style="display: none;">
+        <button class="btn-another" onclick="createAnotherReport()">Create Another Report</button>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
